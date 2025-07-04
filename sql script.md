@@ -1,7 +1,3 @@
-# England’s 2020/2021 Health Index: Service Access, Living Conditions, and Life Expectancy
-
-A Data-Driven Analysis of Trends and Their Implications Amidst the COVID-19 Pandemic
-
 Look through [Previous Repository](https://github.com/temidataspot/england-health-index-etl-sql) on the ETL Process in loading this data to SQL
 
 # SQL Analysis
