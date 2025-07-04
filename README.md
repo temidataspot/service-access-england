@@ -1,52 +1,66 @@
-# England’s 2020/2021 Health Index: Service Access, Living Conditions, and Life Expectancy
+```markdown
+# 🏥 England Health Index (2020–2021): Service Access, Living Conditions & Life Expectancy
 
-A Data-Driven Analysis of Trends and Their Implications Amidst the COVID-19 Pandemic
+This project explores the **Health Index for England (2020/2021)**—focusing on **Service Access**, **Living Conditions**, and **Life Expectancy** indicators. Using official data from the UK Government's open data repositories, I built a full analytics pipeline to uncover regional inequalities and inform health planning decisions.
 
-Look through [Previous Repository](https://github.com/temidataspot/england-health-index-etl-sql) on the ETL Process in loading this data to SQL
+---
 
-# SQL Analysis
+## 📌 Project Objectives
 
-```sql
--- Get regional data for 2020 considering null region values
-SELECT   
-  area_name,
-  life_expectancy_pe3,
-  access_to_services_pl
-FROM `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2020`
-WHERE region IS NULL;
+- Analyze spatial and temporal patterns in England’s **health service access**, infrastructure, and population health outcomes
+- Identify areas with poor access to services and lower life expectancy
+- Build a seamless data pipeline from **R to SQL**, with visuals powered by **Looker Studio**
+- Empower public health professionals and policymakers with a clear, data-driven view of health equity across England
 
--- Get regional data for 2021 considering null values
-SELECT 
-  area_name,
-  life_expectancy_pe3,
-  access_to_services_pl
-FROM `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2021`
-WHERE region IS NULL;
+---
 
--- Compare 2020 vs 2021
-SELECT 
-  a.area_name,
-  a.life_expectancy_pe3 AS life_expectancy_2020,
-  b.life_expectancy_pe3 AS life_expectancy_2021,
-  a.access_to_services_pl AS access_to_services_2020,
-  b.access_to_services_pl AS access_to_services_2021
-FROM `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2020` a
-JOIN `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2021` b
-  ON a.area_name = b.area_name
-WHERE a.region IS NULL;
+## 🗂 Data Sources
 
--- Living conditions comparison
-SELECT 
-  a.area_name,
-  a.living_conditions_pl AS living_conditions_2020,
-  b.living_conditions_pl AS living_conditions_2021,
-  a.access_to_services_pl AS access_to_services_2020,
-  b.access_to_services_pl AS access_to_services_2021
-FROM `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2020` a
-JOIN `temiloluwa-jokotola-projects.england_health_index_dataset.Health_Index_2021` b
-  ON a.area_name = b.area_name
-WHERE a.region IS NULL;
+- 📥 **[Health Index for England](https://www.gov.uk/government/statistics/health-index-for-england-2020-to-2021)** (ONS)
+- 📥 UK Open Government repositories (`data.gov.uk`)
+- Indicators include:
+  - Service Access (e.g. GP access, emergency care, transport links)
+  - Living Conditions (e.g. housing, crime, pollution)
+  - Life Expectancy (regional estimates, trends)
+
+---
+
+## 🔁 Workflow Overview
+
+### 1. **Data Collection & Cleaning**
+- Used `readr`, `dplyr`, and `janitor` in **R** for importing and standardizing datasets
+- Filtered data by indicator groups and normalized regional names and scores
+
+### 2. **Database Integration**
+- Connected R to **BigQuery** using `DBI` and `bigrquery`
+- Created structured tables to support multi-dimensional querying by indicator, region, and year
+
+### 3. **Data Exploration & Analysis**
+- Performed descriptive and comparative analyses across England’s regions
+- Highlighted correlations between service access and life expectancy
+
+### 4. **Dashboard & Visual Analytics**
+- Built dynamic visuals in **Looker Studio**
+- Enabled filterable views by region, index group, and time
+- Included choropleth maps, ranking bars, and year-over-year index trendlines
+
+---
+
+## Tools & Technologies
+
+| Tool/Library     | Purpose                                  |
+|------------------|-------------------------------------------|
+| **R (tidyverse)**| Data import, wrangling, transformation   |
+| **R (bigrquery)**| Create pipeline from R to BQ
+| **Big Query**    | Structured data storage, query optimization |
+| **Looker Studio**| Interactive dashboard visualizations      |
+| **ONS & GOV.UK** | Public health and regional indicator data |
+
+---
+
+> ⚠️ *This project uses open, publicly available data and complies with ONS and UK Government data use policies.*
 ```
+
 
 # Visualizing on Looker
 Dashboard 1: [Service Access and Life Expectancy](https://lookerstudio.google.com/s/vK-RRUSO1oU)
