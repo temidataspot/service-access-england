@@ -45,8 +45,8 @@ WHERE a.region IS NULL;
 ```
 
 # Visualizing on Looker
-Dashboard 1: [Service Access and Life Expectancy](https://lookerstudio.google.com/s/vK-RRUSO1oU)
-Dashboard 2: [Service Access and Living Conditions](https://lookerstudio.google.com/s/opyC8X47WYM)
+Dashboard 1: [Service Access and Life Expectancy](https://lookerstudio.google.com/reporting/3393463b-ee1e-41ef-b67a-4163c4866a40/page/4zkVF)
+Dashboard 2: [Service Access and Living Conditions](https://lookerstudio.google.com/reporting/e870f3d8-6dbe-4b9b-8402-3d33867e3433/page/2SlVF)
 
 # Further Reading
 Read more details on analysis, insights and implications on [Medium](https://medium.com/@temiloluwa.jokotola/englands-2020-2021-health-index-service-access-living-conditions-and-life-expectancy-0d7ec577fbdf)
