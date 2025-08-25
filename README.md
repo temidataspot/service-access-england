@@ -58,7 +58,6 @@ This project explores the **Health Index for England (2020/2021)**—focusing on
 ---
 
 > ⚠️ *This project uses open, publicly available data and complies with ONS and UK Government data use policies.*
-```
 
 
 # Visualizing on Looker
